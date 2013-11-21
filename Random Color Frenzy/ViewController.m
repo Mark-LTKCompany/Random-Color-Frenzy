@@ -35,7 +35,7 @@
     blue=(double)arc4random()/4264967296;
     
     //카운트 변수가 늘어나고, 이걸 스트링에 넣음. 숫자를 그대로 display.text에 넣을 수 있는지는 아직 모르겠다.
-    count+=2;
+    count+=1;
     countstring=[NSString stringWithFormat:@"%i", count];
     
     //누른 횟수를 표기해주고, 문자 색은 반대색으로(보색이 맞는지 모르겠다), 배경색은 랜덤으로 지정한다.
