@@ -40,8 +40,8 @@
     
     //누른 횟수를 표기해주고, 문자 색은 반대색으로(보색이 맞는지 모르겠다), 배경색은 랜덤으로 지정한다.
     display.text = countstring;
-    display.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
-    achievementlabel.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
+    display.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:1];
+    achievementlabel.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:1];
     self.view.backgroundColor=[UIColor colorWithRed:red green:green blue:blue alpha:alpha];
  
     /*
