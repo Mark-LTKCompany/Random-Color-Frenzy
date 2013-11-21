@@ -23,15 +23,16 @@
 @synthesize achievementlabel;
 @synthesize slidervalue;
 @synthesize count;
+@synthesize red, green, blue;
 @synthesize achievement;
 @synthesize countstring;
 
 -(IBAction)click1
 {
     //랜덤 색 생성
-    double red=arc4random()/4264967296;
-    double green=(double)arc4random()/4264967296;
-    double blue=(double)arc4random()/4264967296;
+    red=(double)arc4random()/4264967296;
+    green=(double)arc4random()/4264967296;
+    blue=(double)arc4random()/4264967296;
     
     //카운트 변수가 늘어나고, 이걸 스트링에 넣음. 숫자를 그대로 display.text에 넣을 수 있는지는 아직 모르겠다.
     count+=1;
@@ -100,9 +101,9 @@
 //work in progress: slider가 움직일 때 백그라운드 알파가 변해야 함. 아직 알파만 변하게 할 줄 모름.
 
 - (IBAction)slider {
-/*
-    self.view.backgroundColor =
-*/
+
+    self.view.backgroundColor = [UIColor  colorWithRed:red green:green blue:blue alpha:slidervalue.value];
+
 }
 
 
@@ -131,6 +132,7 @@
     //count, achievement 초기설정
     count=0;
     achievement=1;
+    red=1, green=1, blue=1;
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
