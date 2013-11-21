@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController
+
+@property (nonatomic, retain) AVAudioPlayer *player;
 
 @property (strong, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *achievementlabel;
@@ -27,6 +30,8 @@
 - (IBAction) panic;
 - (IBAction) select:(id)sender;
 - (IBAction) slider;
+- (IBAction) play;
+- (IBAction) stop;
 
 
 @end

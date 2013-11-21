@@ -19,6 +19,8 @@
 //근데 안 쓰면 확실히 뭔가 달라지는 거 같다.
 //잠깐 근데 이거 액션에는 원래 안 써도 되네? 이해안감.
 
+@synthesize player;
+
 @synthesize display;
 @synthesize achievementlabel;
 @synthesize slidervalue;
@@ -26,6 +28,7 @@
 @synthesize red, green, blue, alpha;
 @synthesize achievement;
 @synthesize countstring;
+
 
 -(IBAction)click1
 {
@@ -56,25 +59,29 @@
         return;
     
         
-    if(count==10){
+    if(count==10)
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:잉여" message:@"버튼 10번 누를 시간에 공부를" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"계속할래", nil];
         [alert show];
     }
     
-    if(count==50){
+    if(count==50)
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:청개구리" message:@"100번을 넘으면 발생하는 일에 대해 책임지지 않습니다" delegate:nil cancelButtonTitle:@"동의합니다" otherButtonTitles: nil];
         [alert show];
         
     }
     
-    if(count==99){
+    if(count==99)
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:청개구리" message:@"다시는 누르지 마십시오" delegate:nil cancelButtonTitle:@"동의합니다" otherButtonTitles: nil];
         [alert show];
         
     }
     
     
-    if(count==100){
+    if(count==100)
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"셧다운제" message:@"순간의 상황변화를 받아들이지 못한 당신은 폰을 던집니다" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
         [alert show];
         
@@ -85,33 +92,50 @@
 
 //exit(0)은 사용하면 안되지만 심심해서 패닉버튼 삽입
 
-- (IBAction)panic {
+- (IBAction)panic
+{
     exit(0);
 }
 
 //업적 켜고 끄기
 
-- (IBAction)select:(id)sender {
+- (IBAction)select:(id)sender
+{
     if(achievement==0)
         achievement=1;
     else
         achievement=0;
     
 }
-//work in progress: slider가 움직일 때 백그라운드 알파가 변해야 함. 아직 알파만 변하게 할 줄 모름.
 
-- (IBAction)slider {
+//work in progress: slider가 움직일 때 백그라운드 알파가 변해야 함. 아직 알파만 변하게 할 줄 모름.
+//edit: done. slider 움직이면 백그라운드 알파만 변함.
+
+- (IBAction)slider
+{
     
     alpha=slidervalue.value;
     self.view.backgroundColor = [UIColor  colorWithRed:red green:green blue:blue alpha:alpha];
 
 }
 
+//또 뻘짓. 음악 재생/멈추기
+
+- (IBAction)play
+{
+    [player play];
+}
+
+- (IBAction)stop
+{
+    [player stop];
+}
 
 
 //alert delegate 정의
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex==0)
     {
         //User complied, insert termination code here?
@@ -134,6 +158,22 @@
     count=0;
     achievement=1;
     red=1, green=1, blue=1, alpha=1;
+    
+    //AVAudioPlayer *player; 배경음악 재생
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Nocturne" ofType:@"mp3"]];
+    
+    NSError *error;
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    player.numberOfLoops = -1;
+    
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",[error description]);
+    }
+    else
+    {
+        [player play];
+    }
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
