@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *achievementlabel;
+@property (weak, nonatomic) IBOutlet UISlider *slidervalue;
+
 
 @property int count;
 @property int achievement;
@@ -22,7 +24,8 @@
 
 - (IBAction) click1;
 - (IBAction) panic;
-- (IBAction)select:(id)sender;
+- (IBAction) select:(id)sender;
+- (IBAction) slider;
 
 
 @end

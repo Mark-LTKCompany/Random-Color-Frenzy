@@ -21,6 +21,7 @@
 
 @synthesize display;
 @synthesize achievementlabel;
+@synthesize slidervalue;
 @synthesize count;
 @synthesize achievement;
 @synthesize countstring;
@@ -42,13 +43,18 @@
     achievementlabel.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:1];
     self.view.backgroundColor=[UIColor colorWithRed:red green:green blue:blue alpha:1];
  
-    
+    /*
     //원시적인 업적 스위치
     if(achievement==0)
         return;
-    
+    이해할 수 없는 에러
+     */
     //다소 원시적인 방식의 메시지 표기
     
+    if(achievement==0)
+        return;
+    
+        
     if(count==10){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:잉여" message:@"버튼 10번 누를 시간에 공부를" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"계속할래", nil];
         [alert show];
@@ -59,15 +65,20 @@
         [alert show];
         
     }
+    
     if(count==99){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"경고" message:@"다시는 누르지 마십시오" delegate:nil cancelButtonTitle:@"이해했습니다" otherButtonTitles: nil];
-        [alert show];
-    }
-    if(count==100){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"셧다운제" message:@"순간의 상황변화를 받아들이지 못한 당신은 폰을 던집니다" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:청개구리" message:@"다시는 누르지 마십시오" delegate:nil cancelButtonTitle:@"동의합니다" otherButtonTitles: nil];
         [alert show];
         
     }
+    
+    
+    if(count==100){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"셧다운제" message:@"순간의 상황변화를 받아들이지 못한 당신은 폰을 던집니다" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+        [alert show];
+        
+    }
+    
     
 }
 
@@ -86,6 +97,14 @@
         achievement=0;
     
 }
+//work in progress: slider가 움직일 때 백그라운드 알파가 변해야 함. 아직 알파만 변하게 할 줄 모름.
+
+- (IBAction)slider {
+/*
+    self.view.backgroundColor =
+*/
+}
+
 
 
 //alert delegate 정의
@@ -111,7 +130,7 @@
     
     //count, achievement 초기설정
     count=0;
-    achievement=0;
+    achievement=1;
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
