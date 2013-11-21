@@ -22,6 +22,8 @@
 @property double red, green, blue, alpha;
 @property int achievement;
 @property NSString* countstring;
+@property int songnum;
+@property NSString* songname;
 
 
 
@@ -32,6 +34,7 @@
 - (IBAction) slider;
 - (IBAction) play;
 - (IBAction) stop;
+- (IBAction) next;
 
 
 @end

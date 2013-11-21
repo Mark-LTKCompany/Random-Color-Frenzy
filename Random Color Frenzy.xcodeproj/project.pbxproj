@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4471CEA5183E799D00FEBEAD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4471CEA4183E799D00FEBEAD /* AVFoundation.framework */; };
 		4471CEA7183E7B9600FEBEAD /* Nocturne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4471CEA6183E7B9600FEBEAD /* Nocturne.mp3 */; };
+		4491A29C183EAD9700C98CCE /* Amelie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4491A29A183EAD9700C98CCE /* Amelie.mp3 */; };
+		4491A29D183EAD9700C98CCE /* Inception.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4491A29B183EAD9700C98CCE /* Inception.mp3 */; };
 		449AEFCF183BF8DD0099B7A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449AEFCE183BF8DD0099B7A2 /* Foundation.framework */; };
 		449AEFD1183BF8DD0099B7A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449AEFD0183BF8DD0099B7A2 /* CoreGraphics.framework */; };
 		449AEFD3183BF8DD0099B7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449AEFD2183BF8DD0099B7A2 /* UIKit.framework */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		4471CEA4183E799D00FEBEAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4471CEA6183E7B9600FEBEAD /* Nocturne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nocturne.mp3; sourceTree = "<group>"; };
+		4491A29A183EAD9700C98CCE /* Amelie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Amelie.mp3; sourceTree = "<group>"; };
+		4491A29B183EAD9700C98CCE /* Inception.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Inception.mp3; sourceTree = "<group>"; };
 		449AEFCB183BF8DD0099B7A2 /* Random Color Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Random Color Frenzy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		449AEFCE183BF8DD0099B7A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		449AEFD0183BF8DD0099B7A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +142,8 @@
 		449AEFD5183BF8DD0099B7A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4491A29A183EAD9700C98CCE /* Amelie.mp3 */,
+				4491A29B183EAD9700C98CCE /* Inception.mp3 */,
 				4471CEA6183E7B9600FEBEAD /* Nocturne.mp3 */,
 				449AEFD6183BF8DD0099B7A2 /* Random Color Frenzy-Info.plist */,
 				449AEFD7183BF8DD0099B7A2 /* InfoPlist.strings */,
@@ -244,9 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4491A29C183EAD9700C98CCE /* Amelie.mp3 in Resources */,
 				449AEFE5183BF8DD0099B7A2 /* Main_iPad.storyboard in Resources */,
 				449AEFEA183BF8DD0099B7A2 /* Images.xcassets in Resources */,
 				4471CEA7183E7B9600FEBEAD /* Nocturne.mp3 in Resources */,
+				4491A29D183EAD9700C98CCE /* Inception.mp3 in Resources */,
 				44A64F11183CDC22005A1815 /* Panic Button1.png in Resources */,
 				449AEFE2183BF8DD0099B7A2 /* Main_iPhone.storyboard in Resources */,
 				449AEFD9183BF8DD0099B7A2 /* InfoPlist.strings in Resources */,

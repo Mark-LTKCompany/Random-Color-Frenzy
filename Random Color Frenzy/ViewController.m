@@ -28,6 +28,8 @@
 @synthesize red, green, blue, alpha;
 @synthesize achievement;
 @synthesize countstring;
+@synthesize songnum;
+@synthesize songname;
 
 
 -(IBAction)click1
@@ -135,6 +137,44 @@
 }
 
 
+//잠자기 전 새벽 6시에 10분만에 만든거라 매우 야매성이 강할 다음 곡 넘기기 로직
+- (IBAction)next
+{
+    if(songnum<3)
+        songnum++;
+    else
+        songnum=1;
+    
+    if(songnum==1)
+    {
+        songname=@"Nocturne";
+    }
+    else if(songnum==2)
+    {
+        songname=@"Amelie";
+    }
+    else
+    {
+        songname=@"Inception";
+    }
+    
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:songname ofType:@"mp3"]];
+    
+    NSError *error;
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    player.numberOfLoops = -1;
+    
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",[error description]);
+    }
+    else
+    {
+        [player play];
+    }
+}
+
+
 //alert delegate 정의
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -181,6 +221,7 @@
     count=0;
     achievement=1;
     red=1, green=1, blue=1, alpha=1;
+    songnum=1;
     
     //AVAudioPlayer *player; 배경음악 재생
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Nocturne" ofType:@"mp3"]];
