@@ -61,20 +61,23 @@
         
     if(count==10)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:잉여" message:@"버튼 10번 누를 시간에 공부를" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"계속할래", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement: Loser" message:@"Study instead of pushing buttons" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Nope", nil];
+        alert.tag=0;
         [alert show];
     }
     
     if(count==50)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:청개구리" message:@"100번을 넘으면 발생하는 일에 대해 책임지지 않습니다" delegate:nil cancelButtonTitle:@"동의합니다" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement: Stanley" message:@"We deny responsibility for the consequences after 100" delegate:nil cancelButtonTitle:@"I Agree" otherButtonTitles: nil];
+        alert.tag=0;
         [alert show];
         
     }
     
     if(count==99)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:청개구리" message:@"다시는 누르지 마십시오" delegate:nil cancelButtonTitle:@"동의합니다" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Last Warning" message:@"DO NOT PRESS AGAIN" delegate:nil cancelButtonTitle:@"I understand" otherButtonTitles: nil];
+        alert.tag=0;
         [alert show];
         
     }
@@ -82,9 +85,9 @@
     
     if(count==100)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"셧다운제" message:@"순간의 상황변화를 받아들이지 못한 당신은 폰을 던집니다" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We warned you" message:@"This will continue forever and ever and ever" delegate:self cancelButtonTitle:@"I'm sorry" otherButtonTitles:@"I'm sorry", nil];
+        alert.tag=1;
         [alert show];
-        
     }
     
     
@@ -136,17 +139,37 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex==0)
+    if(alertView.tag==0)
     {
-        //User complied, insert termination code here?
-        //exit(0);
-        //edit: at this time I do not know if this will keep allocated memory from being returned. Also, Apple very strongly discourages this.
+        if (buttonIndex==0)
+        {
+            //User complied, insert termination code here?
+            //exit(0);
+            //edit: at this time I do not know if this will keep allocated memory from being returned. Also, Apple very strongly discourages this.
+        }
+        else
+        {
+            //User didn't comply
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement: Rebel" message:@"This will continue until you give in" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Fuck you", nil];
+            alert.tag=0;
+            [alert show];
+        }
     }
     else
     {
-        //User didn't comply
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"업적:레지스탕스" message:@"순응할때까지 계속됩니다" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"계속할래", nil];
-        [alert show];
+        if (buttonIndex==0)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We warned you" message:@"This will continue forever and ever and ever" delegate:self cancelButtonTitle:@"I'm sorry" otherButtonTitles:@"I'm sorry", nil];
+            alert.tag=1;
+            [alert show];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"We warned you" message:@"This will continue forever and ever and ever" delegate:self cancelButtonTitle:@"I'm sorry" otherButtonTitles:@"I'm sorry", nil];
+            alert.tag=1;
+            [alert show];
+        }
+        
     }
 }
 
