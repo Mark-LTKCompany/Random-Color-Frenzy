@@ -23,7 +23,7 @@
 @synthesize achievementlabel;
 @synthesize slidervalue;
 @synthesize count;
-@synthesize red, green, blue;
+@synthesize red, green, blue, alpha;
 @synthesize achievement;
 @synthesize countstring;
 
@@ -40,9 +40,9 @@
     
     //누른 횟수를 표기해주고, 문자 색은 반대색으로(보색이 맞는지 모르겠다), 배경색은 랜덤으로 지정한다.
     display.text = countstring;
-    display.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:1];
-    achievementlabel.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:1];
-    self.view.backgroundColor=[UIColor colorWithRed:red green:green blue:blue alpha:1];
+    display.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
+    achievementlabel.textColor=[UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
+    self.view.backgroundColor=[UIColor colorWithRed:red green:green blue:blue alpha:alpha];
  
     /*
     //원시적인 업적 스위치
@@ -101,8 +101,9 @@
 //work in progress: slider가 움직일 때 백그라운드 알파가 변해야 함. 아직 알파만 변하게 할 줄 모름.
 
 - (IBAction)slider {
-
-    self.view.backgroundColor = [UIColor  colorWithRed:red green:green blue:blue alpha:slidervalue.value];
+    
+    alpha=slidervalue.value;
+    self.view.backgroundColor = [UIColor  colorWithRed:red green:green blue:blue alpha:alpha];
 
 }
 
@@ -132,7 +133,7 @@
     //count, achievement 초기설정
     count=0;
     achievement=1;
-    red=1, green=1, blue=1;
+    red=1, green=1, blue=1, alpha=1;
     
 	// Do any additional setup after loading the view, typically from a nib.
 }

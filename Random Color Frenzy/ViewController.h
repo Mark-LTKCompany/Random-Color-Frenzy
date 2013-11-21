@@ -16,7 +16,7 @@
 
 
 @property int count;
-@property double red, green, blue;
+@property double red, green, blue, alpha;
 @property int achievement;
 @property NSString* countstring;
 
