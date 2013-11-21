@@ -90,7 +90,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Ad Hoc Distribution"
+      customArchiveName = "Random color frenzy test"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
