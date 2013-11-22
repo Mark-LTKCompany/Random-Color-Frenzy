@@ -39,7 +39,7 @@
                                 <rect key="frame" x="247" y="408" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="select:" destination="vXZ-lx-hvc" eventType="valueChanged" id="oQf-7x-ClN"/>
+                                    <action selector="select" destination="vXZ-lx-hvc" eventType="valueChanged" id="ebU-Y3-a98"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Achievements?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsQ-aB-U5b">

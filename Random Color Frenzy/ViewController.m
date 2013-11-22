@@ -104,7 +104,7 @@
 
 //업적 켜고 끄기
 
-- (IBAction)select:(id)sender
+- (IBAction)select
 {
     if(achievement==0)
         achievement=1;
@@ -175,9 +175,13 @@
 }
 
 
+
+
+
+
 //alert delegate 정의
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.tag==0)
     {
@@ -213,6 +217,8 @@
     }
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -223,6 +229,7 @@
     red=1, green=1, blue=1, alpha=1;
     songnum=1;
     
+        
     //AVAudioPlayer *player; 배경음악 재생
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Nocturne" ofType:@"mp3"]];
     

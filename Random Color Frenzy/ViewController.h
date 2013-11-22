@@ -30,7 +30,7 @@
 
 - (IBAction) click1;
 - (IBAction) panic;
-- (IBAction) select:(id)sender;
+- (IBAction) select;
 - (IBAction) slider;
 - (IBAction) play;
 - (IBAction) stop;
