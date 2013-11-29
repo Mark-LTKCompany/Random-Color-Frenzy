@@ -25,6 +25,8 @@
 @property int songnum;
 @property NSString* songname;
 
+@property int portraitcount;
+
 
 
 
@@ -35,7 +37,6 @@
 - (IBAction) play;
 - (IBAction) stop;
 - (IBAction) next;
-
 
 @end
 

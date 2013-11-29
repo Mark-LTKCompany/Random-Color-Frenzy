@@ -30,6 +30,7 @@
 @synthesize countstring;
 @synthesize songnum;
 @synthesize songname;
+@synthesize portraitcount;
 
 
 -(IBAction)click1
@@ -199,7 +200,7 @@
             [alert show];
         }
     }
-    else
+    else if(alertView.tag==1)
     {
         if (buttonIndex==0)
         {
@@ -213,7 +214,6 @@
             alert.tag=1;
             [alert show];
         }
-        
     }
 }
 
@@ -228,6 +228,7 @@
     achievement=1;
     red=1, green=1, blue=1, alpha=1;
     songnum=1;
+    portraitcount=0;
     
         
     //AVAudioPlayer *player; 배경음악 재생
@@ -247,7 +248,69 @@
     }
     
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    ///*
+    //Accelerometer notif ready
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+     //*/
+    
 }
+
+
+- (void)orientationChanged:(NSNotification *)notification
+{
+    if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])==NO) {
+        portraitcount++;
+    }
+    if(portraitcount==10)
+    {
+        // Respond to changes in device orientation
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kamasutra" message:@"Yes! You can turn your phone!" delegate:self cancelButtonTitle:@"YES!!!" otherButtonTitles: nil];
+        alert.tag=0;
+        [alert show];
+    }
+}
+
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self becomeFirstResponder];
+}
+
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        // User was shaking the device. Post a notification named "shake."
+        //[[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+        [self click1];
+        //NotificationCenter를 현재 제대로 이해하고 사용할 수 있는 상태가 아니기 때문에 옵저버가 아닌 직접 실행으로 함.
+    }
+}
+
+
+
+
+- (void)viewDidDisappear
+{
+    // Request to stop receiving accelerometer events and turn off accelerometer
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
